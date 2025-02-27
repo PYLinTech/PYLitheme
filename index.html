@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>沛雨霖科技</title>
+    <link rel="icon" href="PYLinTech-LOGO-1.png">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <!-- 背景图片 -->
+    <img src="https://www.pylin.cn/wallpaper.php" alt="background" class="background-image">
+
+    <!-- 页头（Header） -->
+    <header class="header">
+        <div class="logo">
+            <img src="PYLinTech-LOGO-3.png" alt="沛雨霖科技">
+        </div>
+        <button class="menu-toggle">
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
+        <nav class="nav nav-collapse">
+            <ul>
+                <li><a href="#">开源地址</a></li>
+                <li><a href="#">联系我们</a></li>
+                <li class="back-btn"><a href="#">返回</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- 英雄区域（Hero Section） -->
+    <section class="hero">
+        <div class="hero-content">
+            <h1>PYLitheme</h1>
+            <p>一款轻盈高效、简约而不简单的静态主题</p>
+            <button class="download-btn">
+                <span>立即下载</span>
+            </button>
+        </div>
+    </section>
+
+    <!-- 特性（Features） -->
+    <section class="features">
+        <div class="feature-item">
+            <img src="1.svg" alt="开源免费">
+            <h3>开源免费</h3>
+            <p>可商用的 <a href="https://opensource.org/license/BSD-3-clause" target="_blank">BSD-3-Clause</a> 协议</p>
+        </div>
+        <div class="feature-item">
+            <img src="2.svg" alt="轻盈体验">
+            <h3>轻盈体验</h3>
+            <p>现代美观的渐变背景和动态效果</p>
+        </div>
+        <div class="feature-item">
+            <img src="3.svg" alt="响应式设计">
+            <h3>响应式设计</h3>
+            <p>应对各种宽屏、窄屏不再烦恼</p>
+        </div>
+        <div class="feature-item">
+            <img src="4.svg" alt="轻松易读">
+            <h3>轻松易读</h3>
+            <p>源代码易读不拖沓，编辑修改很轻松</p>
+        </div>
+    </section>
+
+    <!-- 页脚（Footer） -->
+    <footer class="site-footer">
+        <div class="container">
+            <div class="footer-widgets">
+                <!-- 品牌区块 -->
+                <div class="widget widget-brand">
+                    <h4 class="widget-title">重庆沛雨霖科技有限公司</h4>
+                    <p class="copyright">&copy; 2025 PYLinTech</p>
+                </div>
+
+                <!-- 备案信息区块 -->
+                <div class="widget widget-icp">
+                    <h4 class="widget-title">网站备案信息</h4>
+                    <div class="icp-item">
+                        <a href="https://beian.miit.gov.cn/#/Integrated/index" target="_blank">
+                            <img src="ICP.svg" alt="ICP备案图标">
+                            <span>渝ICP备2025049527号-1</span>
+                        </a>
+                    </div>
+                    <div class="icp-item">
+                        <a href="https://www.beian.gov.cn/portal/registerSystemInfo?recordcode=50010602504942"
+                            target="_blank">
+                            <img src="MPS.png" alt="公安备案图标">
+                            <span>渝公网安备50010602504942号</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JavaScript -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const menuToggle = document.querySelector('.menu-toggle');
+            const nav = document.querySelector('.nav-collapse');
+            const backBtn = document.querySelector('.nav-collapse .back-btn');
+
+            // 切换菜单的显示状态
+            menuToggle.addEventListener('click', function (event) {
+                nav.style.visibility = nav.style.visibility === 'visible' ? 'hidden' : 'visible';
+                nav.style.opacity = nav.style.opacity === '1' ? '0' : '1';
+                event.stopPropagation();
+            });
+
+            // 点击返回按钮关闭菜单
+            backBtn.addEventListener('click', function () {
+                nav.style.visibility = 'hidden';
+                nav.style.opacity = '0';
+            });
+
+            // 点击空白处关闭菜单
+            document.addEventListener('click', function (event) {
+                if (!nav.contains(event.target) && !menuToggle.contains(event.target)) {
+                    nav.style.visibility = 'hidden';
+                    nav.style.opacity = '0';
+                }
+            });
+        });
+    </script>
+</body>
+
+</html>

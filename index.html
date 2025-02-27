@@ -115,13 +115,27 @@
                 nav.style.opacity = '0';
             });
 
-            // 点击空白处关闭菜单
-            document.addEventListener('click', function (event) {
+            // 点击空白处关闭菜单（仅在屏幕宽度小于800px时生效）
+            function closeMenuOnOutsideClick() {
+                if (window.innerWidth < 800) {
+                    document.addEventListener('click', handleOutsideClick);
+                } else {
+                    document.removeEventListener('click', handleOutsideClick);
+                }
+            }
+
+            function handleOutsideClick(event) {
                 if (!nav.contains(event.target) && !menuToggle.contains(event.target)) {
                     nav.style.visibility = 'hidden';
                     nav.style.opacity = '0';
                 }
-            });
+            }
+
+            // 监听窗口大小变化
+            window.addEventListener('resize', closeMenuOnOutsideClick);
+
+            // 初始化
+            closeMenuOnOutsideClick();
         });
     </script>
 </body>

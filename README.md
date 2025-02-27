@@ -42,15 +42,13 @@ PYLitheme/
 └── wallpaper.php       # 背景图片脚本
 ```
 
-## 开源地址
+## 演示地址
 
-[https://github.com/PYLinTech/PYLitheme](https://github.com/PYLinTech/PYLitheme)
-
-欢迎访问我们的开源地址，查看完整的代码和开发文档，参与项目贡献或提出宝贵意见。
+[https://www.pylin.cn/pylitheme](https://www.pylin.cn/pylitheme)
 
 ## 联系我们
 
 如果你在使用过程中遇到任何问题，或有任何建议和反馈，可以通过以下方式联系我们：
 
 - **邮箱**：[enquiries@pylin.cn](mailto:enquiries@pylin.cn)
-- **官网**：[https://www.pylin.cn/pylitheme](https://www.pylin.cn/pylitheme)
+- **官网**：[https://www.pylin.cn](https://www.pylin.cn)

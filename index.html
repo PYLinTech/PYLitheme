@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>沛雨霖科技</title>
-    <link rel="icon" href="PYLinTech-LOGO-1.png">
+    <link rel="icon" href="LOGO-1.png">
     <link rel="stylesheet" href="style.css">
 </head>
 
@@ -16,7 +16,7 @@
     <!-- 页头（Header） -->
     <header class="header">
         <div class="logo">
-            <img src="PYLinTech-LOGO-3.png" alt="沛雨霖科技">
+            <img src="LOGO-2.png" alt="沛雨霖科技">
         </div>
         <button class="menu-toggle">
             <span></span>
@@ -25,25 +25,24 @@
         </button>
         <nav class="nav nav-collapse">
             <ul>
-                <li><a href="#">开源地址</a></li>
-                <li><a href="#">联系我们</a></li>
+                <li><a href="https://github.com/PYLinTech/PYLitheme" target="_blank">开源地址</a></li>
+                <li><a href="#" target="_self">联系我们</a></li>
                 <li class="back-btn"><a href="#">返回</a></li>
             </ul>
         </nav>
     </header>
 
-    <!-- 英雄区域（Hero Section） -->
     <section class="hero">
         <div class="hero-content">
             <h1>PYLitheme</h1>
             <p>一款轻盈高效、简约而不简单的静态主题</p>
-            <button class="download-btn">
+            <button class="download-btn"
+                onclick="window.open('https://cdn.pylin.cn/files/PYLitheme/PYLitheme_Latest.zip','_blank')">
                 <span>立即下载</span>
             </button>
         </div>
     </section>
 
-    <!-- 特性（Features） -->
     <section class="features">
         <div class="feature-item">
             <img src="1.svg" alt="开源免费">
@@ -67,7 +66,6 @@
         </div>
     </section>
 
-    <!-- 页脚（Footer） -->
     <footer class="site-footer">
         <div class="container">
             <div class="footer-widgets">
@@ -98,7 +96,6 @@
         </div>
     </footer>
 
-    <!-- JavaScript -->
     <script>
         document.addEventListener('DOMContentLoaded', function () {
             const menuToggle = document.querySelector('.menu-toggle');

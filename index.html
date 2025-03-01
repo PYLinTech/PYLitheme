@@ -3,7 +3,7 @@
 
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,minimum-scale=1,user-scalable=no">
     <title>沛雨霖科技</title>
     <link rel="icon" href="LOGO-1.png">
     <link rel="stylesheet" href="style.css">
@@ -12,6 +12,9 @@
 <body>
     <!-- 背景图片 -->
     <img src="https://www.pylin.cn/wallpaper.php" alt="background" class="background-image">
+
+    <!-- 遮罩背景 -->
+    <div class="shade"></div>
 
     <!-- 页头（Header） -->
     <header class="header">
@@ -187,7 +190,7 @@
             downloadBtn.addEventListener('click', function () {
                 downloadLink.click(); // 触发下载
                 showModal(downloadModal, downloadModal.querySelector('.modal-content'));
-                setTimeout(() => hideModal(downloadModal, downloadModal.querySelector('.modal-content')), 5000);
+                setTimeout(() => hideModal(downloadModal, downloadModal.querySelector('.modal-content')), 50000);
             });
 
             // 关闭下载提示窗口

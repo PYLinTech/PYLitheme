@@ -4,9 +4,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,minimum-scale=1,user-scalable=no">
+    <meta name="version" content="1.0.5">
     <title>沛雨霖科技</title>
     <link rel="icon" href="LOGO-1.png">
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="style_v1.0.5.css">
 </head>
 
 <body>
@@ -190,7 +191,7 @@
             downloadBtn.addEventListener('click', function () {
                 downloadLink.click(); // 触发下载
                 showModal(downloadModal, downloadModal.querySelector('.modal-content'));
-                setTimeout(() => hideModal(downloadModal, downloadModal.querySelector('.modal-content')), 50000);
+                setTimeout(() => hideModal(downloadModal, downloadModal.querySelector('.modal-content')), 5000);
             });
 
             // 关闭下载提示窗口

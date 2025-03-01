@@ -26,7 +26,7 @@
         <nav class="nav nav-collapse">
             <ul>
                 <li><a href="https://github.com/PYLinTech/PYLitheme" target="_blank">开源地址</a></li>
-                <li><a href="#" target="_self">联系我们</a></li>
+                <li><a href="#" class="contact-us-btn" target="_self">联系我们</a></li>
                 <li class="back-btn"><a href="#">返回</a></li>
             </ul>
         </nav>
@@ -36,12 +36,20 @@
         <div class="hero-content">
             <h1>PYLitheme</h1>
             <p>一款轻盈高效、简约而不简单的静态主题</p>
-            <button class="download-btn"
-                onclick="window.open('https://cdn.pylin.cn/files/PYLitheme/PYLitheme_Latest.zip','_blank')">
-                <span>立即下载</span>
-            </button>
+            <button class="download-btn"><span>立即下载</span></button>
         </div>
     </section>
+
+    <!-- 隐藏的下载链接 -->
+    <a href="https://cdn.pylin.cn/files/PYLitheme/PYLitheme_Latest.zip" id="download-link" style="display: none;"
+        download></a>
+    <!-- 下载提示窗口 -->
+    <div class="download-modal" id="download-modal">
+        <div class="modal-content">
+            <p>下载已经开始，请稍候...</p>
+            <button class="close-modal" onclick="closeDownloadModal()">关 闭</button>
+        </div>
+    </div>
 
     <section class="features">
         <div class="feature-item">
@@ -79,7 +87,7 @@
                 <div class="widget widget-icp">
                     <h4 class="widget-title">网站备案信息</h4>
                     <div class="icp-item">
-                        <a href="https://beian.miit.gov.cn/#/Integrated/index" target="_blank">
+                        <a href="https://beian.miit.gov.cn" target="_blank">
                             <img src="ICP.svg" alt="ICP备案图标">
                             <span>渝ICP备2025049527号-1</span>
                         </a>
@@ -96,11 +104,32 @@
         </div>
     </footer>
 
+    <!-- 联系提示窗口 -->
+    <div class="contact-modal" id="contact-modal">
+        <div class="modal-content">
+            <p>请在公众号留言联系</p>
+            <p>我们将尽快回复您！</p>
+            <div class="contact-image">
+                <img src="contact.png" alt="联系我们">
+            </div>
+            <button class="close-modal" onclick="closeContactModal()">关 闭</button>
+        </div>
+    </div>
+
     <script>
+        // 监听页面加载完成事件
         document.addEventListener('DOMContentLoaded', function () {
+            // 获取页面元素
             const menuToggle = document.querySelector('.menu-toggle');
             const nav = document.querySelector('.nav-collapse');
             const backBtn = document.querySelector('.nav-collapse .back-btn');
+            const downloadBtn = document.querySelector('.download-btn');
+            const downloadModal = document.getElementById('download-modal');
+            const closeModalBtn = document.querySelector('.close-modal');
+            const downloadLink = document.getElementById('download-link');
+            const contactBtn = document.querySelector('.contact-us-btn');
+            const contactModal = document.getElementById('contact-modal');
+            const contactCloseBtn = document.querySelector('.contact-modal .close-modal');
 
             // 切换菜单的显示状态
             menuToggle.addEventListener('click', function (event) {
@@ -136,6 +165,46 @@
 
             // 初始化
             closeMenuOnOutsideClick();
+
+            // 模态窗口显示和隐藏的通用函数
+            function showModal(modal, content) {
+                modal.style.opacity = 1;
+                modal.style.pointerEvents = 'auto';
+                content.style.opacity = 1;
+                content.style.transform = 'scale(1)';
+            }
+
+            function hideModal(modal, content) {
+                modal.style.opacity = 0;
+                content.style.opacity = 0;
+                content.style.transform = 'scale(0.8)';
+                setTimeout(() => {
+                    modal.style.pointerEvents = 'none';
+                }, 500);
+            }
+
+            // 下载按钮点击事件
+            downloadBtn.addEventListener('click', function () {
+                downloadLink.click(); // 触发下载
+                showModal(downloadModal, downloadModal.querySelector('.modal-content'));
+                setTimeout(() => hideModal(downloadModal, downloadModal.querySelector('.modal-content')), 5000);
+            });
+
+            // 关闭下载提示窗口
+            closeModalBtn.addEventListener('click', function () {
+                hideModal(downloadModal, downloadModal.querySelector('.modal-content'));
+            });
+
+            // 联系我们按钮点击事件
+            contactBtn.addEventListener('click', function (event) {
+                event.preventDefault();
+                showModal(contactModal, contactModal.querySelector('.modal-content'));
+            });
+
+            // 关闭联系提示窗口
+            contactCloseBtn.addEventListener('click', function () {
+                hideModal(contactModal, contactModal.querySelector('.modal-content'));
+            });
         });
     </script>
 </body>

@@ -100,7 +100,7 @@ header .nav ul li a:hover::after {
     opacity: 1;
 }
 
-/* === 英雄区域（Hero）样式 === */
+/* === 主标题区域（Hero）样式 === */
 .hero {
     background-color: #f3f3f3;
     padding: 50px 20px;
@@ -132,7 +132,7 @@ header .nav ul li a:hover::after {
     padding: 10px 20px;
     font-size: 16px;
     cursor: pointer;
-    border-radius: 5px;
+    border-radius: 6px;
     transition: transform 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease;
 }
 
@@ -159,6 +159,138 @@ header .nav ul li a:hover::after {
     100% {
         background-position: 0% 50%;
     }
+}
+
+/* === 模态窗口（下载提示和联系提示）样式 === */
+/* 下载提示窗口 */
+.download-modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    /* 半透明背景 */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+    opacity: 0;
+    transition: opacity 0.5s ease;
+    pointer-events: none;
+}
+
+.download-modal .modal-content {
+    position: relative;
+    background: white;
+    padding: 20px;
+    border-radius: 10px;
+    text-align: center;
+    width: 80%;
+    height: auto;
+    max-width: 400px;
+    transform: scale(0.8);
+    transition: transform 0.5s ease, opacity 0.5s ease;
+    opacity: 0;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+    overflow: hidden;
+}
+
+.download-modal .modal-content p {
+    font-weight: bold;
+    font-size: 1.3rem;
+    margin-block-end: 3rem;
+}
+
+.download-modal .close-modal {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #ff4d4f;
+    color: white;
+    border: none;
+    cursor: pointer;
+    font-size: 1rem;
+    transition: background-color 0.3s ease;
+}
+
+.download-modal .close-modal:hover {
+    background-color: #e03133;
+}
+
+/* 联系提示窗口 */
+.contact-modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    /* 半透明背景 */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+    opacity: 0;
+    transition: opacity 0.5s ease;
+    pointer-events: none;
+}
+
+.contact-modal .modal-content {
+    position: relative;
+    background: white;
+    padding: 20px;
+    border-radius: 10px;
+    text-align: start;
+    width: 80%;
+    height: auto;
+    max-width: 400px;
+    transform: scale(0.8);
+    transition: transform 0.5s ease, opacity 0.5s ease;
+    opacity: 0;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+    overflow: hidden;
+}
+
+.contact-modal .modal-content p {
+    font-weight: bold;
+    font-size: 1.3rem;
+    margin-block: 0.6rem;
+}
+
+.contact-modal .close-modal {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #ff4d4f;
+    color: white;
+    border: none;
+    cursor: pointer;
+    font-size: 1rem;
+    transition: background-color 0.3s ease;
+}
+
+.contact-modal .close-modal:hover {
+    background-color: #e03133;
+}
+
+.contact-modal .contact-image {
+    padding-top: 1rem;
+    padding-bottom: 2rem;
+}
+
+.contact-modal .contact-image img {
+    width: 100%;
 }
 
 /* === 特性（Features）样式 === */
@@ -318,14 +450,18 @@ header .nav ul li a:hover::after {
 
 /* === 媒体查询（Media Queries） === */
 @media (max-width: 800px) {
+
+    /* 主标题区域调整 */
     .hero-content {
         margin-left: 1rem;
     }
 
+    /* 特性区域调整 */
     .feature-item {
         width: 90%;
     }
 
+    /* 容器和页脚调整 */
     .container {
         grid-template-columns: 1fr;
     }
@@ -355,6 +491,7 @@ header .nav ul li a:hover::after {
         padding: 0.8rem 2rem;
     }
 
+    /* 导航菜单调整 */
     .menu-toggle {
         display: block;
     }

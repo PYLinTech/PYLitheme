@@ -25,23 +25,6 @@
 4. **部署网站**
    将项目目录上传到你的服务器或托管平台，即可完成网站的部署。
 
-## 项目结构
-
-```
-PYLitheme/
-├── index.html          # 主页文件
-├── LOGO-1.png          # 网站图标
-├── LOGO-2.png          # 网站标志
-├── 1.svg               # 特色功能图标 1
-├── 2.svg               # 特色功能图标 2
-├── 3.svg               # 特色功能图标 3
-├── 4.svg               # 特色功能图标 4
-├── ICP.svg             # ICP 备案图标
-├── MPS.png             # 公安备案图标
-├── style.css           # 样式文件
-└── wallpaper.php       # 背景图片脚本
-```
-
 ## 演示地址
 
 [https://www.pylin.cn/pylitheme](https://www.pylin.cn/pylitheme)

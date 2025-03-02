@@ -1,14 +1,16 @@
 <?php
 // 定义缓存文件路径和缓存时间
-$cacheFile = __DIR__ . '/wallpaper_cache.jpg'; // 缓存文件路径
+$cacheFile = __DIR__ . '/wallpaper_cache.json'; // 缓存文件路径
 $cacheTime = 3600; // 缓存有效期（秒），例如 3600 秒（1小时）
 
 // 检查缓存文件是否存在且未过期
 if (file_exists($cacheFile) && (time() - filemtime($cacheFile) < $cacheTime)) {
-    // 缓存有效，直接输出缓存文件
-    header('Content-Type: image/jpeg');
-    readfile($cacheFile);
-    exit();
+    // 缓存有效，直接读取缓存文件
+    $cachedData = json_decode(file_get_contents($cacheFile), true);
+    if ($cachedData) {
+        echo json_encode($cachedData);
+        exit();
+    }
 }
 
 // 缓存失效，从 Bing API 获取壁纸
@@ -17,7 +19,7 @@ $curl = curl_init($url);
 curl_setopt($curl, CURLOPT_URL, $url);
 curl_setopt($curl, CURLOPT_RETURNTRANSFER, true);
 curl_setopt($curl, CURLOPT_HTTPHEADER, array("Accept: application/json"));
-curl_setopt($curl, CURLOPT_SSL_VERIFYHOST, false); // 生产环境中请启用证书验证
+curl_setopt($curl, CURLOPT_SSL_VERIFYHOST, false);
 curl_setopt($curl, CURLOPT_SSL_VERIFYPEER, false);
 
 $response = curl_exec($curl);
@@ -37,13 +39,11 @@ if (isset($data->images[0]->urlbase)) {
     exit('Image URL not found');
 }
 
-// 下载壁纸并保存到本地缓存文件
-if (@file_put_contents($cacheFile, file_get_contents($imageUrl)) === false) {
-    exit('Failed to save image to cache');
-}
+// 缓存图片地址
+$cachedData = ['imageUrl' => $imageUrl];
+file_put_contents($cacheFile, json_encode($cachedData));
 
-// 输出图片内容
-header('Content-Type: image/jpeg');
-readfile($cacheFile);
+// 返回图片地址
+echo json_encode($cachedData);
 exit();
 ?>

@@ -12,7 +12,7 @@
 ## 使用方法
 
 1. **下载主题**
-   点击 [立即下载](https://cdn.pylin.cn/files/PYLitheme/PYLitheme_Latest.zip) 按钮，下载最新版本的主题文件。
+   点击 [立即下载](https://cdn.pylin.cn/files/pylitheme/PYLitheme_Latest.zip) 按钮，下载最新版本的主题文件。
 
 2. **解压文件**
    将下载的压缩包解压到你的项目目录中。
